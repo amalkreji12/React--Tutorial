@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+
+import './App.css'
+import Header from './components/Header';
 
 function App() {
+  const data = 'Data from App.js const data';
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* <h1 style={{color:'red',backgroundColor:'blue'}}>Hello World</h1> */}
+      <Header data={data}/>
+      <h1 className='hello'>Hello World</h1>
+      <p>This is my first react app : {data}</p>
+      <Outside/>
     </div>
+    
   );
 }
 
 export default App;
+
+function Outside(){
+  return(<h1>Heloo from outside</h1>)
+}
