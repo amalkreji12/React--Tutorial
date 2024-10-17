@@ -4,22 +4,25 @@ import './App.css'
 import {useState} from 'react'
 import Counter from './Counter';
 import Employee from './Employee';
+import CounterUseEffect from './CounterUseEffect';
 
 function App() {
-  const [count,setCount] = useState(0);
+  // const [count,setCount] = useState(0);
   // const data = 'Data from App.js const data';
-  const addCount = ()=>{
-    setCount(count+1); 
-  }
-  let obj = {
-    title:'2st Counter',
-    count
-  }
-  let emp = [
-    {name:'apple',age:10},
-    {name:'orange',age:10},
-    {name:'grapes',age:10}
-  ]
+  const[state,setState] = useState(false);
+
+  // const addCount = ()=>{
+  //   setCount(count+1); 
+  // }
+  // let obj = {
+  //   title:'2st Counter',
+  //   count
+  // }
+  // let emp = [
+  //   {name:'apple',age:10},
+  //   {name:'orange',age:10},
+  //   {name:'grapes',age:10}
+  // ]
 
   return (
     // <div>
@@ -30,19 +33,32 @@ function App() {
     //   <Outside/>
     // </div>
 
-    <div className='App'>
-      <button onClick={addCount}>Add</button>
-      <h1>Count : {count}</h1>
-      <Counter title='1st counter' count={count}/>
-      <Counter {...obj}/>  
-      {
-        emp.map((obj,index)=>{
-          return (
-            // <Employee key={index} name={obj.name} age={obj.age}/>
-            <Employee key={index} {...obj}/>
-          )
-        })
-      }
+    // <div className='App'>
+    //   <button onClick={addCount}>Add</button>
+    //   <h1>Count : {count}</h1>
+    //   <Counter title='1st counter' count={count}/>
+    //   <Counter {...obj}/>  
+    //   {
+    //     emp.map((obj,index)=>{
+    //       return (
+    //         // <Employee key={index} name={obj.name} age={obj.age}/>
+    //         <Employee key={index} {...obj}/>
+    //       )
+    //     })
+    //   }
+    // </div>
+
+    <div className='myApp'>
+      <h1 onClick={()=>setState(!state)}>Show/Hide</h1>
+      {/* // 1st state=false
+      // !state = true
+      steState(true)
+      state=true */}
+
+      {state ?<CounterUseEffect/> : null}
+      {/* {state && <CounterUseEffect/>} */}
+      {/* Here Mounting and Unmounting is happening */}
+
     </div>
     
   );
