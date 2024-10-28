@@ -1,10 +1,15 @@
 import React from 'react'
 
+import One from '../components/One'
 
 
-function Profile() {
+function Profile({data}) {
     return (
-        <h1>Profile Page</h1>
+        <div style={{backgroundColor: 'blue'}}>
+            <h1>Profile Page</h1>
+            <One/>
+        </div>
+        
     ) 
 }
 

@@ -5,9 +5,9 @@ import { useState } from 'react';
 import About from './container/About';
 import Profile from './container/Profile';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
-
+import {AppContext} from './AppContext.js'
 function App() {
-  const [state, setState] = useState('')
+  const [state, setState] = useState(10)
 
   return (
     <div className='myApp'>
@@ -23,13 +23,16 @@ function App() {
           </ul>
         </div>
 
+        <AppContext.Provider value={{data:state}}>
         <Routes>
           <Route element={<About />} path='/about' />
           <Route element={<Profile />} path='/profile' />
         </Routes>
+        </AppContext.Provider>
       </Router>
     </div>
   )
 }
+
 
 export default App;
